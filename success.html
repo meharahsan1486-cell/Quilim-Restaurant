@@ -1,89 +1,32 @@
-<section class="container py-5">
-  <h2>Contact & Book a Table</h2>
-
-  <div class="row g-4">
-    <div class="col-md-6">
-      <div id="booking-form-container">
-        <form id="booking-form">
-
-          <div class="mb-3">
-            <label class="form-label">Full Name</label>
-            <input type="text" name="name" class="form-control" required>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Phone Number</label>
-            <input type="tel" name="phone" class="form-control" required>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Reservation Date</label>
-            <input type="date" name="date" class="form-control" required>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Reservation Time</label>
-            <input type="time" name="time" class="form-control" required>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Number of Guests</label>
-            <input type="number" name="guests" class="form-control" min="1" required>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Special Requests</label>
-            <textarea name="requests" class="form-control"></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary">Book My Table</button>
-        </form>
-      </div>
-
-      <!-- Success Message (hidden by default) -->
-      <div id="success-message" class="text-center" style="display:none;">
-        <h3>🎉 Thank You!</h3>
-        <p>Your reservation has been sent successfully.</p>
-        <a href="index.html" class="btn btn-success">Return to Home</a>
-      </div>
-
-    </div>
-
-    <!-- Map & Contact Info -->
-    <div class="col-md-6">
-      <div class="ratio ratio-16x9 mb-3">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.1638460725503!2d73.11277397389387!3d31.409611552608926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3922687391e41451%3A0xfb71454b9a9c37d0!2sGovt.%20Graduate%20College%20of%20Commerce%20Peoples%20Colony%20Faisalabad!5e0!3m2!1sen!2s!4v1767542922959!5m2!1sen!2s"
-          allowfullscreen="" loading="lazy"></iframe>
-      </div>
-
-      <p><strong>Address:</strong><br>C457+47J Hashmat Ali, Khan Rd, Block C</p>
-      <p><strong>Phone:</strong> (041) 8540373</p>
-      <a href="https://wa.me/91418540373" class="btn btn-success">WhatsApp Us</a>
-    </div>
-  </div>
-</section>
-
-<script>
-document.getElementById("booking-form")
-  .addEventListener("submit", async function (event) {
-    event.preventDefault(); // Prevent page reload
-    const form = event.target;
-    const formData = new FormData(form);
-
-    try {
-      await fetch("https://script.google.com/macros/s/AKfycbwBFgoiUQK9_xjyPGg9eZZmZTeOVXusW1J5OpzOM1za4NSowRJ-bxBfyE0WRduf2RkK/exec", {
-        method: "POST",
-        body: formData
-      });
-
-      // Hide form and show success message
-      document.getElementById("booking-form-container").style.display = "none";
-      document.getElementById("success-message").style.display = "block";
-
-    } catch (error) {
-      alert("Oops! Something went wrong. Please try again.");
-      console.error(error);
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
     }
-});
-</script>
+    .btn {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+    .btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Thank You!</h1>
+  <p>Your table is successfully booked at <strong>Quilim Restaurant</strong>!</p>
+  <a href="https://meharahsan1486-cell.github.io/quilim-restaurant/contact.html" class="btn">
+    Back to Contact Page
+  </a>
+</body>
+</html>
