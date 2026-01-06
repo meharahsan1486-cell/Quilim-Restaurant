@@ -1,97 +1,59 @@
-<section class="container py-5">
-  <h2 class="text-center mb-4">Contact & Book a Table</h2>
+<body>
 
-  <div class="row">
+<!-- NAVBAR -->
+<nav style="background:#111; padding:15px;">
+  <a href="index.html" style="color:white; text-decoration:none; font-size:22px;">
+    Quilim Restaurant
+  </a>
+</nav>
 
-    <!-- Booking Form -->
-    <div class="col-md-6">
+<!-- BOOKING SECTION -->
+<section style="max-width:700px; margin:40px auto; padding:20px; background:#fff; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.1);">
 
-      <!-- Form container -->
-      <div id="booking-form-container">
-        <form id="booking-form">
+  <h2 style="text-align:center; color:#8B0000;">Book a Table</h2>
+  <p style="text-align:center;">Reserve your table at Quilim Restaurant</p>
 
-          <div class="mb-3">
-            <label class="form-label">Full Name</label>
-            <input type="text" name="name" class="form-control" required>
-          </div>
+  <form action="success.html" method="GET">
 
-          <div class="mb-3">
-            <label class="form-label">Phone Number</label>
-            <input type="tel" name="phone" class="form-control" required>
-          </div>
+    <label>Name</label>
+    <input type="text" required placeholder="Your Name"
+      style="width:100%; padding:10px; margin:8px 0;">
 
-          <div class="mb-3">
-            <label class="form-label">Reservation Date</label>
-            <input type="date" name="date" class="form-control" required>
-          </div>
+    <label>Phone</label>
+    <input type="tel" required placeholder="Your Phone Number"
+      style="width:100%; padding:10px; margin:8px 0;">
 
-          <div class="mb-3">
-            <label class="form-label">Reservation Time</label>
-            <input type="time" name="time" class="form-control" required>
-          </div>
+    <label>Date</label>
+    <input type="date" required
+      style="width:100%; padding:10px; margin:8px 0;">
 
-          <div class="mb-3">
-            <label class="form-label">Number of Guests</label>
-            <input type="number" name="guests" class="form-control" min="1" required>
-          </div>
+    <label>Time</label>
+    <input type="time" required
+      style="width:100%; padding:10px; margin:8px 0;">
 
-          <div class="mb-3">
-            <label class="form-label">Special Requests (optional)</label>
-            <textarea name="requests" class="form-control"></textarea>
-          </div>
+    <label>Guests</label>
+    <select style="width:100%; padding:10px; margin:8px 0;">
+      <option>1–2 People</option>
+      <option>3–4 People</option>
+      <option>5–6 People</option>
+      <option>7+ People</option>
+    </select>
 
-          <button type="submit" class="btn btn-primary w-100">Book My Table</button>
+    <button type="submit"
+      style="width:100%; padding:12px; background:#8B0000; color:white; border:none; font-size:16px; border-radius:5px; cursor:pointer;">
+      Book Table
+    </button>
 
-        </form>
-      </div>
+  </form>
 
-      <!-- Thank You Message (hidden initially) -->
-      <div id="thank-you-message" class="text-center" style="display:none; margin-top: 20px;">
-        <h3 class="text-success">🎉 Thank You!</h3>
-        <p>Your table is successfully booked at <strong>Quilim Restaurant</strong>!</p>
-        <p>We look forward to serving you 🙂</p>
-        <a href="index.html" class="btn btn-success">Back to Home</a>
-      </div>
-
-    </div>
-
-    <!-- Map + Contact Info -->
-    <div class="col-md-6">
-      <div class="ratio ratio-16x9 mb-3">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.1638460725503!2d73.11277397389387!3d31.409611552608926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3922687391e41451%3A0xfb71454b9a9c37d0!2sGovt.%20Graduate%20College%20of%20Commerce%20Peoples%20Colony%20Faisalabad!5e0!3m2!1sen!2s!4v1767542922959!5m2!1sen!2s"
-          allowfullscreen="" loading="lazy"></iframe>
-      </div>
-      <p><strong>Address:</strong> Govt. Graduate College of Commerce Peoples Colony, Faisalabad</p>
-      <p><strong>Phone:</strong> (041) 8540373</p>
-      <a href="https://wa.me/91418540373" class="btn btn-success">WhatsApp Us</a>
-    </div>
-
-  </div>
 </section>
 
-<script>
-// JavaScript to handle the form submit and show a thank you message
-document.getElementById("booking-form").addEventListener("submit", async function(e) {
-  e.preventDefault(); // Prevent default page reload
+<!-- CONTACT INFO -->
+<section style="text-align:center; padding:30px;">
+  <h3>Contact Us</h3>
+  <p>📍 Peoples Colony, Faisalabad</p>
+  <p>📞 (041) 8540373</p>
+  <p>⏰ Open till 12:00 AM</p>
+</section>
 
-  const form = e.target;
-  const scriptURL = "https://script.google.com/macros/s/AKfycbwBFgoiUQK9_xjyPGg9eZZmZTeOVXusW1J5OpzOM1za4NSowRJ-bxBfyE0WRduf2RkK/exec";
-
-  try {
-    await fetch(scriptURL, {
-      method: "POST",
-      body: new FormData(form)
-    });
-
-    // Hide the form
-    document.getElementById("booking-form-container").style.display = "none";
-    // Show the thank you message
-    document.getElementById("thank-you-message").style.display = "block";
-
-  } catch (error) {
-    alert("Oops! Something went wrong – please try again.");  
-    console.error("Form submission error:", error);
-  }
-});
-</script>
+</body>
