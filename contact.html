@@ -1,112 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>Book a Table | Quilim Restaurant</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body{
-  font-family: Arial, sans-serif;
-  background:#f3f3f3;
-  margin:0;
-}
-.box{
-  max-width:420px;
-  background:#fff;
-  margin:60px auto;
-  padding:25px;
-  border-radius:8px;
-  box-shadow:0 0 12px rgba(0,0,0,.1);
-}
-h2{
-  text-align:center;
-  color:#8b0000;
-}
-label{
-  margin-top:10px;
-  display:block;
-  font-weight:bold;
-}
-input,select{
-  width:100%;
-  padding:10px;
-  margin-top:5px;
-  border:1px solid #ccc;
-  border-radius:5px;
-}
-button{
-  width:100%;
-  margin-top:20px;
-  padding:12px;
-  background:#8b0000;
-  color:#fff;
-  border:none;
-  font-size:16px;
-  border-radius:5px;
-  cursor:pointer;
-}
-button:hover{
-  background:#a80000;
-}
-#error{
-  color:red;
-  text-align:center;
-  margin-top:15px;
-}
+body{font-family:Arial;background:#f3f3f3}
+.box{max-width:420px;margin:60px auto;background:#fff;padding:25px;border-radius:8px}
+h2{text-align:center;color:#8b0000}
+input,select,button{width:100%;padding:10px;margin-top:10px}
+button{background:#8b0000;color:#fff;border:none}
 </style>
 </head>
 
 <body>
-
 <div class="box">
-<h2>Table Booking</h2>
+<h2>Book a Table</h2>
 
-<form id="bookingForm">
-  <label>Name</label>
-  <input type="text" name="name" required>
+<form 
+  method="POST" 
+  action="https://script.google.com/macros/s/AKfycbzXRwMWYfYT0HRypAYdytgEUBSjFc-0lnUkInaDiagqR6lm2hm3nUIkNW5jaTGs/exec">
 
-  <label>Phone</label>
-  <input type="tel" name="phone" required>
+<input name="name" placeholder="Name" required>
+<input name="phone" placeholder="Phone" required>
+<input type="date" name="date" required>
+<input type="time" name="time" required>
 
-  <label>Date</label>
-  <input type="date" name="date" required>
+<select name="guests" required>
+  <option value="1-2">1–2 Guests</option>
+  <option value="3-4">3–4 Guests</option>
+  <option value="5-6">5–6 Guests</option>
+  <option value="7+">7+ Guests</option>
+</select>
 
-  <label>Time</label>
-  <input type="time" name="time" required>
-
-  <label>Guests</label>
-  <select name="guests" required>
-    <option value="1-2">1–2</option>
-    <option value="3-4">3–4</option>
-    <option value="5-6">5–6</option>
-    <option value="7+">7+</option>
-  </select>
-
-  <button type="submit">Book Now</button>
+<button type="submit">Book Now</button>
 </form>
-
-<div id="error"></div>
 </div>
-
-<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbzXRwMWYfYT0HRypAYdytgEUBSjFc-0lnUkInaDiagqR6lm2hm3nUIkNW5jaTGs/exec";
-
-document.getElementById("bookingForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  fetch(scriptURL,{
-    method:"POST",
-    body:new FormData(this)
-  })
-  .then(()=> {
-    window.location.href = "success.html";
-  })
-  .catch(()=>{
-    document.getElementById("error").innerText="Booking failed. Try again.";
-  });
-});
-</script>
-
 </body>
 </html>
